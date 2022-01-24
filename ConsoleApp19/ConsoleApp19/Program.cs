@@ -35,31 +35,66 @@ namespace ConsoleApp19
         //    }
         //    Console.WriteLine(largestDay);
         //}
-        static int thing()
+        //static int thing()
+        //{
+        //    bool broken = false; int lastDigit = 11;
+        //    int currentNum = int.Parse(Console.ReadLine());
+        //    int ChangeNum = currentNum;
+        //    while (currentNum != 0)
+        //    {
+        //        int currentDigit = currentNum % 10;
+        //        currentNum /= 10;
+        //        ChangeNum = currentNum;
+        //        while(ChangeNum != 0)
+        //        {
+        //            int digitCheck = ChangeNum % 10;
+        //            ChangeNum /= 10;
+        //            if (currentDigit == digitCheck)
+        //            {
+        //                broken = true;
+        //            }
+        //        }
+        //    }
+        //    if (broken) return 0; else return 1;
+        //}
+        static void thing(int num)
         {
-            bool broken = false; int lastDigit = 11;
-            int currentNum = int.Parse(Console.ReadLine());
-            int ChangeNum = currentNum;
-            while (currentNum != 0)
+            int i1 = 1;
+            int i2 = num;
+            while (i1 != num)
             {
-                int currentDigit = currentNum % 10;
-                currentNum /= 10;
-                ChangeNum = currentNum;
-                while(ChangeNum != 0)
+                i2 = num;
+                while (i2 != 0)
                 {
-                    int digitCheck = ChangeNum % 10;
-                    ChangeNum /= 10;
-                    if (currentDigit == digitCheck)
+                    if (i1 * i2 == num)
                     {
-                        broken = true;
+                        Console.WriteLine("(" + i1 + "," + i2 + ")");
                     }
+                    i2--;
                 }
+                i1++;
             }
-            if (broken) return 0; else return 1;
-        }
+            i2 = -num;
+            i1 = 1;
+            while (i1 != -num)
+            {
+                i2 = -num;
+                while (i2 != 0)
+                {
+                    //Console.WriteLine("checking " + i1 + " * " + i2 + "..");
+                    if (i1 * i2 == num)
+                    {
+                        Console.WriteLine("(" + i1 + "," + i2 + ")");
+                    }
+                    i2++;
+                }
+                i1--;
+            }
+           }
         static void Main()
         {
-            Console.WriteLine(thing());
+            int num = int.Parse(Console.ReadLine());
+            thing(num);
         }
     }
 }
